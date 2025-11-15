@@ -1,0 +1,100 @@
+html{
+    background-image: url(/Musify/SigninB2.png);
+    background-size: cover;
+
+}
+
+.loginbox{
+    margin: 0 auto;
+    margin-top: 180px;
+    background-image: url(/Musify/signinbox.jpg);
+    background-size: cover;
+    border: 4px solid black;
+    box-shadow: 18px 18px 50px rgb(255, 255, 255);
+}
+#loginbox{
+    height: 800px;
+    width: 500px;
+    background-color: white;
+}
+h1{
+    text-align: center;
+    color: white;
+    font-size: 2.6rem;
+    padding-top: 35px;
+    font-family: 'Trebuchet MS', sans-serif;
+    text-decoration: underline;
+}
+h3{
+    text-align: center;
+    color: white;
+    font-size:1.2rem;
+    font-family: 'Trebuchet MS', sans-serif;
+}
+.inputs{
+    padding-top: 5px;
+}
+.inputs h2{
+    color: white;
+    font-family:'Lucida Grande','Lucida Sans Unicode', 'Lucida Sans', Arial, sans-serif;
+    font-weight:600;
+}
+
+.username{
+    padding-left: 50px;
+
+}
+#username{
+    margin-left: 50px;
+    height: 28px;
+    width: 250px;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+.password{
+    padding-left: 50px;
+    
+}
+#password{
+    margin-left: 50px;
+    height: 28px;
+    width: 250px;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+.buttons{
+    padding-top: 25px;
+    text-align: center;
+}
+#login1:hover{
+    border: 3.5px solid white;
+}
+#login2:hover{
+    border: 3.5px solid black;
+}
+
+#login1{
+    height: 32px;
+    width: 400px;
+    border-radius: 17px;
+    background-color: black;
+    color: white;
+    font-size: 1.2rem;
+    font-family: 'Trebuchet MS', sans-serif;
+    
+}
+
+#login2{
+    height: 32px;
+    width: 400px;
+    border-radius: 17px;
+    font-size: 1rem;
+    font-family: 'Trebuchet MS', sans-serif;
+}
+
+#fpassword{
+    text-align: center;
+    margin-top: 22px;
+    color: rgb(1, 38, 63);
+    cursor: grab;
+}

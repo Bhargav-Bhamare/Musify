@@ -1,0 +1,513 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+body{
+    background-color: #000000;
+}
+
+/* Navbar */
+
+.navbar{
+    margin-left: 10px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 65px;
+    width: auto;
+    background-color: #000000;
+}
+
+.poster-hover{
+    border: 2px solid transparent;
+}
+.poster-hover:hover{
+    border: 2px solid white;
+}
+
+.click{
+    border: 2px solid transparent;
+}
+
+.click:active{
+    border: 2px solid white;
+}
+
+/* Box 1 */
+
+.main-logo{
+    height: 65px;
+    /* width: 155px; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.main-logo p{
+    padding-bottom: 9px;
+}
+
+/* Box 2 */
+
+.home-logo{
+    height: 50px;
+    width: 80px;
+    margin-top: 6px;
+    border: 1px solid #000000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    font-size: 1.8rem;
+    padding-bottom: 7px;
+}
+.home-logo a{
+    color: white;
+    font-family: 'Trebuchet MS', sans-serif ;
+    font-size: 1.6rem;
+}
+.home-logo img{
+    color: #b8afaf;
+   
+}
+
+/* Box 3 */
+
+.search-bar{
+    height: 55px;
+    width: 700px;
+    background-color: #1F1F1F;
+    border-radius: 16px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    color: white;
+    font-family: cursive;
+    font-size: 1.8rem;
+}
+.search-bar input{
+    height: 55px;
+    width: 700px;
+    background-color: #1F1F1F;
+    border-radius: 16px;
+    color: white;
+    border: none;
+    font-size: 1.4rem;
+
+}
+
+
+.last-two{
+    width: 30%;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+}
+/* Box 4 */
+
+#signinb{
+    height: 65px;
+    width:125px;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-family: 'Trebuchet MS', sans-serif ;
+    font-size: 1.2rem;
+}
+
+/* Box 5 */
+
+.Login{
+    height: 45px;
+    width: 125px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    color: #000000;
+    border-radius: 30px;
+    font-family: 'Trebuchet MS', sans-serif;
+    font-size: 1.2rem;
+}
+#loginb{
+    color: #000000;
+    text-decoration: none;
+}
+
+/* Hero Banner */
+.hero-banner{
+    height: 550px;
+    background-color: #000000;
+    /* margin-bottom: 20px;
+    margin-top: 8px; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+/* Artists */
+
+.artists{
+    height: 400px;
+    width: 100%;
+    background-color: #130d0dcc;
+}
+
+.artist-head{
+    display: flex;
+    align-items: center;
+    height: 25%;
+    padding-left: 7px;
+    font-size: 2.2rem;
+    font-family: 'Trebuchet MS', sans-serif;
+    font-weight: 800;
+    color: white;
+}
+.artist-img{
+    height: 60%;
+    display: flex;
+    margin-top: 7px;
+    align-items: center;
+    color: white;
+}
+.box{
+    display: flex;
+    align-items:flex-end;
+    height: 220px;
+    width: 200px;
+}
+.box1{
+    margin-left: 20px;
+    background-image: url(rahat.jpg);
+    background-size: cover;
+}
+.box2{
+    margin-left: 140px;
+    background-image: url(sonu_nigam.jpg);
+    background-size: cover;
+}
+.box3{
+    margin-left: 140px;
+    background-image: url(pritam.jpg);
+    background-size: cover;
+}
+.box4{
+    margin-left: 140px;
+    background-image: url(sukhwinder.jpg);
+    background-size: cover;
+}
+.artist-name{
+    height: 15%;
+    display: flex;
+    justify-content:flex-start ;
+    align-items: center;
+}
+.artist{
+    font-family: 'Trebuchet MS', sans-serif;
+    font-weight: 800;
+    color: white;
+    font-size: 1.6rem;
+
+}
+.name1{
+    margin-left: 20px;
+}
+.name2{
+    margin-left: 100px;
+}
+.name3{
+    margin-left: 200px;
+}
+.name4{
+    margin-left: 250px;
+}
+
+/* Vibe Panel */
+
+.Vibe{
+    height: 400px;
+    width: 100%;
+    background-color: #130d0dcc;
+}
+
+.vibe-head{
+    display: flex;
+    align-items: center;
+    height: 25%;
+    padding-left: 7px;
+    font-size: 2.2rem;
+    font-family: 'Trebuchet MS', sans-serif;
+    font-weight: 800;
+    color: white;
+}
+.vibe-img{
+    height: 60%;
+    display: flex;
+    margin-top: 7px;
+    align-items: center;
+    color: white;
+}
+.vbox{
+    display: flex;
+    align-items:flex-end;
+    height: 220px;
+    width: 200px;
+}
+.vibebox1{
+    margin-left: 20px;
+    background-image: url(vibe1.jpg);
+    background-size: cover;
+}
+.vibebox2{
+    margin-left: 140px;
+    background-image: url(vibe2.jpg);
+    background-size: cover;
+}
+.vibebox3{
+    margin-left: 140px;
+    background-image: url(vibe3.jpg);
+    background-size: cover;
+}
+.vibebox4{
+    margin-left: 140px;
+    background-image: url(vibe4.jpg);
+    background-size: cover;
+}
+.vibe-name{
+    height: 15%;
+    display: flex;
+    justify-content:flex-start ;
+    align-items: center;
+}
+.vibe{
+    font-family: 'Trebuchet MS', sans-serif;
+    font-weight: 800;
+    color: white;
+    font-size: 1.6rem;
+
+}
+.vibename1{
+    margin-left: 20px;
+}
+.vibename2{
+    margin-left: 180px;
+}
+.vibename3{
+    margin-left: 255px;
+}
+.vibename4{
+    margin-left: 270px;
+}
+
+.gap{
+    height: 40px;
+    background-color: #000000;
+}
+
+/* Hollywood Artist */
+
+.Hartist{
+    height: 400px;
+    width: 100%;
+    background-color: #130d0dcc;
+}
+
+.hartist-head{
+    display: flex;
+    align-items: center;
+    height: 25%;
+    padding-left: 7px;
+    font-size: 2.2rem;
+    font-family: 'Trebuchet MS', sans-serif;
+    font-weight: 800;
+    color: white;
+}
+.hartist-img{
+    height: 60%;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 7px;
+    align-items: center;
+    color: white;
+}
+.hbox{
+    display: flex;
+    align-items:flex-end;
+    height: 220px;
+    width: 200px;
+}
+.hartistbox1{
+    margin-left: 20px;
+    background-image: url(billie.jpg);
+    background-size: cover;
+}
+.hartistbox2{
+    margin-left: 140px;
+    background-image: url(sabrina.jpg);
+    background-size: cover;
+}
+.hartistbox3{
+    margin-left: 140px;
+    background-image: url(mj.jpg);
+    background-size: cover;
+}
+.hartistbox4{
+    margin-left: 140px;
+    background-image: url(ariana.jpg);
+    background-size: cover;
+}
+.hartist-name{
+    height: 15%;
+    display: flex;
+    justify-content:flex-start ;
+    align-items: center;
+}
+.hartist{
+    font-family: 'Trebuchet MS', sans-serif;
+    font-weight: 800;
+    color: white;
+    font-size: 1.6rem;
+    display: flex;
+
+}
+.hartistname1{
+    margin-left: 20px;
+}
+.hartistname2{
+    margin-left: 205px;
+}
+.hartistname3{
+    margin-left: 135px;
+}
+.hartistname4{
+    margin-left: 220px;
+}
+
+/* Poster 1 */
+
+.poster1{
+    background-color: #130d0dcc;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 750px;
+    margin: 5px;
+}
+
+#posterpara{
+    font-size: 2.8rem;
+    font-family: 'Trebuchet MS', sans-serif;
+    font-weight: 800;
+    color: white;
+    padding-bottom: 35px;
+    padding-top: 25px;
+}
+
+/* Poster 2 */
+
+.poster2{
+    background-color: #130d0dcc;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+    height: 600px;
+    margin: 5px;
+}
+
+#posterpara{
+    text-align: center;
+    font-size: 2.8rem;
+    font-family: 'Trebuchet MS', sans-serif;
+    font-weight: 800;
+    color: white;
+    padding-bottom: 35px;
+    padding-top: 25px;
+}
+
+.soul{
+    height: 450px;
+    width: 350px ;
+    border: 4px solid rgb(128, 94, 94);
+    color: white;
+}
+.soul-img{
+    display: flex;
+    justify-content: space-evenly;
+}
+.soul1{
+    background-image: url(badshah.jpg);
+    background-size: cover;
+}
+.soul2{
+    background-image: url(bhangra.jpg);
+    background-size: cover;
+}
+.soul3{
+    background-image: url(breakup.jpg);
+    background-size: cover;
+}
+
+.foot-panel1{
+    background-color: #352727cc;
+    color:white;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: large;
+    font-weight: 400;
+    font-family:'Times New Roman', Times, serif;
+}
+.foot-panel2{
+    background-color: #000000;
+    color: white;
+    height: 250px;
+    display: flex;
+    justify-content: space-evenly;
+    padding-top: 24px;
+}
+
+ul p{
+    font-weight: 800;
+}
+ul a{
+    display: block;
+    font-size: 0.85rem;
+    margin-top: 10px;
+    color: #dddddd;
+}
+.foot-panel3{
+    background-color: #0f1111;
+    border-top: 0.5px solid white;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo1{
+    background-image: url("logowobg.png");
+    background-size: cover;
+    height: 75px;
+    width: 200px;
+}
+
+
+.foot-panel4{
+    background-color: #130d0dcc;
+    color: white;
+    height: 75px;
+}
+.pages{
+    padding-top: 10px ;
+    text-align: center;
+}
+.copyright{
+    text-align: center;
+}
+
