@@ -588,20 +588,6 @@ ul a{
 
 
 /* FULL PLAYER */
-#full-player {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100vh;
-    width: 100vw;
-    background: #0c0c0cec;
-    display: none;
-    justify-content: center;
-    align-items: center;
-    z-index: 999999;
-    backdrop-filter: blur(6px);
-}
-
 .fp-content {
     text-align: center;
     color: white;
@@ -650,5 +636,27 @@ ul a{
     border-radius: 10px;
     cursor: pointer;
 }
+
+
+/* Changed */
+#full-player {
+    position: fixed;
+    bottom: -100%;
+    left: 0;
+    width: 100%;
+    height: 85%;
+    background: #111;
+    color: white;
+    border-radius: 25px 25px 0 0;
+    transition: bottom 0.4s ease;
+    z-index: 9999;
+    padding: 20px;
+}
+
+#full-player.show {
+    bottom: 0;
+}
+
+
 
 
