@@ -66,3 +66,21 @@ document.querySelector(".mini-player").addEventListener("click", () => {
 document.getElementById("fp-close").addEventListener("click", () => {
     document.getElementById("full-player").classList.remove("show");
 });
+
+const mpCover = document.querySelector(".mp-cover");
+const fpCover = document.querySelector(".fp-cover");
+
+function updateRotation() {
+    if (audio.paused) {
+        mpCover.classList.remove("rotate");
+        fpCover.classList.remove("rotate");
+    } else {
+        mpCover.classList.add("rotate");
+        fpCover.classList.add("rotate");
+    }
+}
+
+// update when play/pause
+audio.addEventListener("play", updateRotation);
+audio.addEventListener("pause", updateRotation);
+
