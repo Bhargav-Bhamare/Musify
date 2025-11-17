@@ -84,3 +84,20 @@ function updateRotation() {
 audio.addEventListener("play", updateRotation);
 audio.addEventListener("pause", updateRotation);
 
+
+const miniVis = document.querySelector(".mp-visualizer");
+const fullVis = document.querySelector(".fp-visualizer");
+
+function updateVisualizer() {
+    if (audio.paused) {
+        miniVis.classList.remove("playing");
+        fullVis.classList.remove("playing");
+    } else {
+        miniVis.classList.add("playing");
+        fullVis.classList.add("playing");
+    }
+}
+
+audio.addEventListener("play", updateVisualizer);
+audio.addEventListener("pause", updateVisualizer);
+
