@@ -657,6 +657,19 @@ ul a{
     bottom: 0;
 }
 
+/* Rotation animation */
+@keyframes rotateAlbum {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Apply rotation when playing */
+.rotate {
+    animation: rotateAlbum 6s linear infinite;
+    border-radius: 50%;
+}
+
+
 
 
 
