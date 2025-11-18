@@ -714,6 +714,11 @@ ul a{
     margin-left: -10px;   /* adjust this value */
 }
 
+.mp-volume input {
+    width: 90px;
+    cursor: pointer;
+    accent-color: white;
+}
 
 
 
