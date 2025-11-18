@@ -101,3 +101,21 @@ function updateVisualizer() {
 audio.addEventListener("play", updateVisualizer);
 audio.addEventListener("pause", updateVisualizer);
 
+const volMini = document.getElementById("mp-volume");
+const volFull = document.getElementById("fp-volume");
+
+// Mini player controls volume
+if (volMini) {
+    volMini.addEventListener("input", () => {
+        audio.volume = volMini.value / 100;
+        if (volFull) volFull.value = volMini.value;
+    });
+}
+
+// Full player controls volume
+if (volFull) {
+    volFull.addEventListener("input", () => {
+        audio.volume = volFull.value / 100;
+        volMini.value = volFull.value;
+    });
+}
