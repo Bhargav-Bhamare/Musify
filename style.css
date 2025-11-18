@@ -627,13 +627,14 @@ ul a{
 }
 
 #fp-close {
+    
     margin-top: 25px;
-    padding: 10px 18px;
+    padding: 10px 18px; 
     font-size: 1rem;
     background: white;
     color: black;
     border: none;
-    border-radius: 10px;
+    border-radius: 20px;
     cursor: pointer;
 }
 
@@ -711,7 +712,7 @@ ul a{
 }
 
 .mp-visualizer {
-    margin-left: -10px;   /* adjust this value */
+     margin-right: 116px;   /*adjust this value  */
 }
 
 .mp-volume input {

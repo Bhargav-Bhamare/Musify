@@ -162,7 +162,7 @@
         <img src="/Musify/vibe1.jpg" alt="cover" class="mp-cover">
         <div class="mp-info">
             <p class="mp-title">Shava Shava</p>
-            <p class="mp-artist">Aadesh Srivastava</p>
+            <p class="mp-artist">Aadesh Srivastava,Amitabh Bacchan,Sudhesh Bhosale</p>
         </div>
     </div>
 
@@ -174,12 +174,13 @@
 
     <div class="mp-right">
         <input type="range" id="mp-seek" value="0" class="mp-seek">
-        <!-- Volume Slider -->
+    </div>
+<h54>Volume:</h54>
+            <!-- Volume Slider -->
+             
         <div class="mp-volume">
             <input type="range" id="mp-volume" min="0" max="100" value="80">
         </div>
-
-    </div>
 
     <div class="mp-visualizer">
     <span></span><span></span><span></span><span></span><span></span>
@@ -194,10 +195,12 @@
 <!-- FULL PLAYER EXPANDED VIEW -->
 <div id="full-player">
     <div class="fp-content">
+      
         <img src="/Musify/vibe1.jpg" class="fp-cover">
+        <button id="fp-close">Close ⬇</button>
 
         <h2 class="fp-title">Shava Shava</h2>
-        <p class="fp-artist">Aadesh Srivastava</p>
+        <p class="fp-artist">Aadesh Srivastava,Amitabh Bacchan,Sudhesh Bhosale</p>
 
         <input type="range" id="fp-seek">
 
@@ -206,10 +209,12 @@
             <button id="fp-play">⏯</button>
             <button id="fp-next">⏭</button>
         </div>
+        
+        <h4>Volume:</h4>
         <!-- Full Player Volume -->
-        <input type="range" id="fp-volume" min="0" max="100" value="80" style="width:70%; margin-top:20px;">
-
-        <button id="fp-close">Close ⬇</button>
+        <input type="range" id="fp-volume" min="0" max="100" value="80" style="width:20%; margin-top:20px;">
+        <br>
+        
     </div>
 
     <div class="fp-visualizer">
