@@ -721,6 +721,57 @@ ul a{
     accent-color: white;
 }
 
+/* --- Dynamic BG & Glow --- */
+#full-player.dynamic-bg {
+  transition: background 600ms ease, box-shadow 600ms ease;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+/* subtle tint overlay so text stays readable */
+#full-player.dynamic-bg::after{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.25), rgba(0,0,0,0.6));
+  pointer-events: none;
+  border-radius: 25px 25px 0 0;
+}
+
+/* mini-player glow from album color */
+.mini-player.glow {
+  box-shadow: 0 -10px 40px rgba(255,255,255,0.05), 0 -6px 30px var(--mp-glow, rgba(0,0,0,0));
+  transition: box-shadow 600ms ease;
+}
+
+/* --- Animated SVG play/pause styling --- */
+.play-svg {
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.play-svg .bar { fill: white; transition: transform 300ms ease, opacity 300ms ease; transform-origin: center; }
+.play-svg .triangle { fill: white; transition: transform 300ms ease, opacity 300ms ease; transform-origin: center; }
+
+/* "playing" toggles to pause look */
+.playing .triangle { opacity: 0; transform: scale(0.8); }
+.playing .bar { opacity: 1; transform: scaleY(1); }
+
+/* default state (paused) show triangle, hide bars */
+.play-svg .bar { opacity: 0; transform: scaleY(0.2); }
+.play-svg .triangle { opacity: 1; transform: scale(1); }
+
+/* small hover feedback */
+#mp-play:hover, #fp-play:hover { transform: scale(1.06); transition: transform 120ms ease; cursor:pointer; }
+
+/* make sure full-player overlay ::after sits above bg but below content */
+#full-player .fp-content { position: relative; z-index: 2; }
+#full-player::after { z-index: 1; }
+
+
 
 
 
