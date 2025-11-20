@@ -771,6 +771,120 @@ ul a{
 #full-player .fp-content { position: relative; z-index: 2; }
 #full-player::after { z-index: 1; }
 
+/* FROSTED GLASS FULL PLAYER */
+#full-player {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(20px) brightness(1.1);
+    -webkit-backdrop-filter: blur(20px) brightness(1.1);
+
+    /* Semi-transparent layer */
+    background: rgba(255, 255, 255, 0.08);
+
+    display: none;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 9999;
+}
+
+/* Inner content glass box */
+.fp-content {
+    width: 85%;
+    max-width: 450px;
+    padding: 25px;
+    border-radius: 25px;
+
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(25px) saturate(160%);
+    -webkit-backdrop-filter: blur(25px) saturate(160%);
+
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    box-shadow: 0 4px 25px rgba(0,0,0,0.6);
+
+    text-align: center;
+    color: white;
+}
+
+.fp-cover {
+    width: 80%;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 25px rgba(0,0,0,0.5);
+}
+
+
+#full-player {
+    transition: 0.35s ease-in-out;
+}
+
+.fp-content {
+    animation: popIn 0.4s ease;
+}
+
+@keyframes popIn {
+    from {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+#full-player {
+    pointer-events: auto;
+}
+
+
+#full-player {
+    display: none;
+}
+
+#full-player.show {
+    display: flex;
+}
+
+.full-player img {
+  width: 220px;       /* match your player size */
+  height: 220px;
+  object-fit: cover;
+  clip-path: circle(50%);
+  animation: rotate 6s linear infinite;
+}
+.full-player .image-container {
+  border-radius: 50%;
+  overflow: hidden;  /* important */
+}
+
+.full-player-image {
+    width: 260px;        /* your full player size */
+    height: 260px;
+    border-radius: 50%;
+    overflow: hidden;     /* THIS fixes the square issue */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.full-player-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;   /* second layer of circle */
+    animation: rotate 6s linear infinite;
+}
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.full-player-image{
+    margin-left: 80px;
+}
 
 
 

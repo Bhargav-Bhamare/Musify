@@ -57,10 +57,17 @@ fpSeekBar.addEventListener("input", () => {
 });
 
 
-// MINI → FULL EXPAND
-document.querySelector(".mini-player").addEventListener("click", () => {
-    document.getElementById("full-player").classList.add("show");
+// MINI → FULL EXPAND (but ignore buttons and sliders)
+document.getElementById("mini-player").addEventListener("click", (e) => {
+    if (
+        e.target.tagName !== "BUTTON" &&
+        e.target.tagName !== "INPUT" &&
+        !e.target.classList.contains("mp-cover")
+    ) {
+        document.getElementById("full-player").classList.add("show");
+    }
 });
+
 
 // CLOSE BIG PLAYER
 document.getElementById("fp-close").addEventListener("click", () => {
