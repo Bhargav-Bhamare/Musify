@@ -887,6 +887,50 @@ ul a{
     margin-left: 80px;
 }
 
+/* Floating Mini Player Bubble */
+#float-bubble {
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+    cursor: pointer;
+    z-index: 999999;
+
+    transition: transform 0.2s ease;
+}
+
+/* Hover effect */
+#float-bubble:hover {
+    transform: scale(1.08);
+}
+
+/* Image inside circle */
+#float-bubble img {
+    width: 90%;
+    height: 90%;
+    border-radius: 50%;
+    object-fit: cover;
+    animation: fb-rotate 6s linear infinite;
+}
+
+/* Rotation animation */
+@keyframes fb-rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+
 
 
 
