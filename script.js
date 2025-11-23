@@ -289,5 +289,33 @@ document.getElementById('fp-play')?.addEventListener('click', () => {
   setTimeout(() => setPlayStateVisual(!audio.paused), 80);
 });
 
-/* Optional: if you programmatically change mp-cover or fp-cover src in playlist logic,
-   call applyDynamicBackgroundFromImage(newImageElement) afterwards to update immediately. */
+   // CLICK → OPEN FULL PLAYER
+document.getElementById("float-bubble").addEventListener("click", () => {
+    document.getElementById("full-player").style.display = "flex";
+});
+
+
+// MAKE THE BUBBLE DRAGGABLE
+const bubble = document.getElementById("float-bubble");
+let isDragging = false;
+let offsetX, offsetY;
+
+bubble.addEventListener("mousedown", (e) => {
+    isDragging = true;
+
+    offsetX = e.clientX - bubble.getBoundingClientRect().left;
+    offsetY = e.clientY - bubble.getBoundingClientRect().top;
+});
+
+document.addEventListener("mousemove", (e) => {
+    if (!isDragging) return;
+
+    bubble.style.left = `${e.clientX - offsetX}px`;
+    bubble.style.top = `${e.clientY - offsetY}px`;
+    bubble.style.bottom = "auto";  // so top works
+    bubble.style.right = "auto";
+});
+
+document.addEventListener("mouseup", () => {
+    isDragging = false;
+});
