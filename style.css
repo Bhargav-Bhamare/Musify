@@ -892,22 +892,62 @@ ul a{
     position: fixed;
     bottom: 80px;
     right: 20px;
-    width: 65px;
-    height: 65px;
+    width: 68px;
+    height: 68px;
     border-radius: 50%;
-    background: rgba(255,255,255,0.15);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
 
     display: flex;
     justify-content: center;
     align-items: center;
 
-    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+    background: rgba(255,255,255,0.12);
+    backdrop-filter: blur(10px);
+
     cursor: pointer;
     z-index: 999999;
+}
 
-    transition: transform 0.2s ease;
+/* Aura ring */
+#float-bubble::before {
+    content: "";
+    position: absolute;
+    inset: -6px;
+    border-radius: 50%;
+    background: conic-gradient(
+        #ff5f6d,
+        #ffc371,
+        #47c9ff,
+        #ff5f6d
+    );
+    filter: blur(10px);
+    opacity: 0.6;
+    animation: auraIdle 4s ease-in-out infinite;
+}
+
+/* When music is playing */
+#float-bubble.playing::before {
+    animation: auraSpin 2s linear infinite;
+    opacity: 0.9;
+}
+
+@keyframes auraSpin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes auraIdle {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.08); }
+}
+
+/* Image */
+#float-bubble img {
+    width: 90%;
+    height: 90%;
+    border-radius: 50%;
+    object-fit: cover;
+    animation: fb-rotate 6s linear infinite;
+    z-index: 1;
 }
 
 /* Hover effect */

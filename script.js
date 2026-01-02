@@ -64,14 +64,14 @@ document.getElementById("mini-player").addEventListener("click", (e) => {
         e.target.tagName !== "INPUT" &&
         !e.target.classList.contains("mp-cover")
     ) {
-        document.getElementById("full-player").classList.add("show");
+        document.getElementById("full-player").style.display = "flex";
     }
 });
 
 
 // CLOSE BIG PLAYER
 document.getElementById("fp-close").addEventListener("click", () => {
-    document.getElementById("full-player").classList.remove("show");
+    document.getElementById("full-player").style.display = "none";
 });
 
 const mpCover = document.querySelector(".mp-cover");
@@ -318,4 +318,41 @@ document.addEventListener("mousemove", (e) => {
 
 document.addEventListener("mouseup", () => {
     isDragging = false;
+});
+
+
+document.addEventListener("mouseup", () => {
+    if (!isDragging) return;
+    isDragging = false;
+
+    const rect = bubble.getBoundingClientRect();
+    const screenWidth = window.innerWidth;
+    const screenHeight = window.innerHeight;
+
+    const snapMargin = 40;
+
+    let finalX = rect.left;
+    let finalY = rect.top;
+
+    // Snap left / right
+    if (rect.left < snapMargin) {
+        finalX = 10;
+    } else if (screenWidth - rect.right < snapMargin) {
+        finalX = screenWidth - rect.width - 10;
+    }
+
+    // Snap top / bottom
+    if (rect.top < snapMargin) {
+        finalY = 10;
+    } else if (screenHeight - rect.bottom < snapMargin) {
+        finalY = screenHeight - rect.height - 10;
+    }
+
+    bubble.style.transition = "0.25s ease";
+    bubble.style.left = `${finalX}px`;
+    bubble.style.top = `${finalY}px`;
+
+    setTimeout(() => {
+        bubble.style.transition = "";
+    }, 250);
 });
