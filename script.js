@@ -356,3 +356,182 @@ document.addEventListener("mouseup", () => {
         bubble.style.transition = "";
     }, 250);
 });
+
+// ===== PARTICLE BACKGROUND ANIMATION =====
+class ParticleSystem {
+    constructor() {
+        this.canvas = document.getElementById('particle-canvas');
+        this.ctx = this.canvas.getContext('2d');
+        this.particles = [];
+        this.maxParticles = 80;
+        
+        this.resize();
+        this.createParticles();
+        this.animate();
+        
+        window.addEventListener('resize', () => this.resize());
+    }
+    
+    resize() {
+        this.canvas.width = window.innerWidth;
+        this.canvas.height = window.innerHeight;
+    }
+    
+    createParticles() {
+        for (let i = 0; i < this.maxParticles; i++) {
+            this.particles.push({
+                x: Math.random() * this.canvas.width,
+                y: Math.random() * this.canvas.height,
+                vx: (Math.random() - 0.5) * 0.5,
+                vy: (Math.random() - 0.5) * 0.5,
+                size: Math.random() * 3 + 1,
+                opacity: Math.random() * 0.5 + 0.2,
+                color: this.getRandomColor()
+            });
+        }
+    }
+    
+    getRandomColor() {
+        const colors = ['#ff6b6b', '#4ecdc4', '#45b7d1', '#96ceb4', '#feca57', '#ff9ff3'];
+        return colors[Math.floor(Math.random() * colors.length)];
+    }
+    
+    updateParticles() {
+        this.particles.forEach(particle => {
+            particle.x += particle.vx;
+            particle.y += particle.vy;
+            
+            // Wrap around screen
+            if (particle.x < 0) particle.x = this.canvas.width;
+            if (particle.x > this.canvas.width) particle.x = 0;
+            if (particle.y < 0) particle.y = this.canvas.height;
+            if (particle.y > this.canvas.height) particle.y = 0;
+            
+            // Pulse effect when music is playing
+            if (!audio.paused) {
+                particle.opacity = 0.3 + Math.sin(Date.now() * 0.003 + particle.x * 0.01) * 0.2;
+            }
+        });
+    }
+    
+    drawParticles() {
+        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+        
+        this.particles.forEach(particle => {
+            this.ctx.save();
+            this.ctx.globalAlpha = particle.opacity;
+            this.ctx.fillStyle = particle.color;
+            this.ctx.beginPath();
+            this.ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
+            this.ctx.fill();
+            this.ctx.restore();
+        });
+        
+        // Draw connections between nearby particles
+        this.drawConnections();
+    }
+    
+    drawConnections() {
+        for (let i = 0; i < this.particles.length; i++) {
+            for (let j = i + 1; j < this.particles.length; j++) {
+                const dx = this.particles[i].x - this.particles[j].x;
+                const dy = this.particles[i].y - this.particles[j].y;
+                const distance = Math.sqrt(dx * dx + dy * dy);
+                
+                if (distance < 100) {
+                    this.ctx.save();
+                    this.ctx.globalAlpha = (100 - distance) / 100 * 0.2;
+                    this.ctx.strokeStyle = '#ffffff';
+                    this.ctx.lineWidth = 0.5;
+                    this.ctx.beginPath();
+                    this.ctx.moveTo(this.particles[i].x, this.particles[i].y);
+                    this.ctx.lineTo(this.particles[j].x, this.particles[j].y);
+                    this.ctx.stroke();
+                    this.ctx.restore();
+                }
+            }
+        }
+    }
+    
+    animate() {
+        this.updateParticles();
+        this.drawParticles();
+        requestAnimationFrame(() => this.animate());
+    }
+}
+
+// ===== SOUND WAVE VISUALIZATION =====
+class SoundWaveVisualizer {
+    constructor() {
+        this.canvas = document.getElementById('sound-wave-canvas');
+        this.ctx = this.canvas.getContext('2d');
+        this.bars = 64;
+        this.barWidth = 0;
+        this.barHeights = new Array(this.bars).fill(0);
+        
+        this.resize();
+        this.animate();
+        
+        window.addEventListener('resize', () => this.resize());
+    }
+    
+    resize() {
+        this.canvas.width = this.canvas.offsetWidth;
+        this.canvas.height = this.canvas.offsetHeight;
+        this.barWidth = this.canvas.width / this.bars;
+    }
+    
+    generateRandomData() {
+        // Simulate audio data when no real audio analysis is available
+        for (let i = 0; i < this.bars; i++) {
+            if (!audio.paused) {
+                // More dynamic when playing
+                const target = Math.random() * this.canvas.height * 0.8;
+                this.barHeights[i] += (target - this.barHeights[i]) * 0.1;
+            } else {
+                // Gentle idle animation when paused
+                const target = Math.sin(Date.now() * 0.002 + i * 0.1) * 20 + 30;
+                this.barHeights[i] += (target - this.barHeights[i]) * 0.05;
+            }
+        }
+    }
+    
+    draw() {
+        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+        
+        for (let i = 0; i < this.bars; i++) {
+            const barHeight = Math.max(5, this.barHeights[i]);
+            const x = i * this.barWidth;
+            const y = this.canvas.height - barHeight;
+            
+            // Create gradient for each bar
+            const gradient = this.ctx.createLinearGradient(0, y, 0, this.canvas.height);
+            gradient.addColorStop(0, '#ff6b6b');
+            gradient.addColorStop(0.5, '#4ecdc4');
+            gradient.addColorStop(1, '#45b7d1');
+            
+            this.ctx.fillStyle = gradient;
+            this.ctx.fillRect(x, y, this.barWidth - 2, barHeight);
+            
+            // Add glow effect when playing
+            if (!audio.paused) {
+                this.ctx.shadowColor = '#ffffff';
+                this.ctx.shadowBlur = 10;
+                this.ctx.fillRect(x, y, this.barWidth - 2, barHeight);
+                this.ctx.shadowBlur = 0;
+            }
+        }
+    }
+    
+    animate() {
+        this.generateRandomData();
+        this.draw();
+        requestAnimationFrame(() => this.animate());
+    }
+}
+
+// Initialize both systems when page loads
+document.addEventListener('DOMContentLoaded', () => {
+    new ParticleSystem();
+    new SoundWaveVisualizer();
+});
