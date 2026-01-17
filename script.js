@@ -534,4 +534,109 @@ class SoundWaveVisualizer {
 document.addEventListener('DOMContentLoaded', () => {
     new ParticleSystem();
     new SoundWaveVisualizer();
+    new FloatingMusicNotesSystem();
 });
+
+// ===== FLOATING MUSIC NOTES FEATURE =====
+class FloatingMusicNotesSystem {
+    constructor() {
+        this.notes = ['♪', '♫', '♬', '♭', '♮', '♯'];
+        this.colors = ['#ff6b6b', '#4ecdc4', '#45b7d1', '#96ceb4', '#feca57', '#ff9ff3'];
+        this.isPlaying = false;
+        this.spawnRate = 0; // How often to spawn notes
+        this.maxNotes = 50;
+        this.noteCount = 0;
+        
+        this.setupAudioListeners();
+        this.startAnimation();
+    }
+    
+    setupAudioListeners() {
+        audio.addEventListener('play', () => {
+            this.isPlaying = true;
+            this.spawnRate = 100; // Spawn a note every 100ms
+            this.addBeatGlow();
+        });
+        
+        audio.addEventListener('pause', () => {
+            this.isPlaying = false;
+            this.spawnRate = 0;
+            this.removeBeatGlow();
+        });
+        
+        audio.addEventListener('ended', () => {
+            this.isPlaying = false;
+            this.spawnRate = 0;
+            this.removeBeatGlow();
+        });
+    }
+    
+    spawnNote() {
+        if (!this.isPlaying || this.noteCount >= this.maxNotes) return;
+        
+        const note = document.createElement('div');
+        note.className = 'music-note';
+        note.textContent = this.notes[Math.floor(Math.random() * this.notes.length)];
+        note.style.color = this.colors[Math.floor(Math.random() * this.colors.length)];
+        
+        // Random horizontal position along the mini player
+        const miniPlayer = document.querySelector('.mini-player');
+        const miniRect = miniPlayer.getBoundingClientRect();
+        const randomX = miniRect.left + Math.random() * miniRect.width;
+        const randomY = miniRect.top;
+        
+        note.style.left = randomX + 'px';
+        note.style.top = randomY + 'px';
+        
+        // Random drift direction
+        if (Math.random() > 0.5) {
+            note.classList.add('drift-left');
+        } else {
+            note.classList.add('drift-right');
+        }
+        
+        document.body.appendChild(note);
+        this.noteCount++;
+        
+        // Remove note after animation completes
+        setTimeout(() => {
+            note.remove();
+            this.noteCount--;
+        }, 3000);
+    }
+    
+    // Pulse effect on the mini player when beat happens
+    triggerBeatEffect() {
+        if (!this.isPlaying) return;
+        
+        const miniPlayer = document.querySelector('.mini-player');
+        miniPlayer.classList.remove('beat-pulse');
+        // Trigger reflow to restart animation
+        void miniPlayer.offsetWidth;
+        miniPlayer.classList.add('beat-pulse');
+    }
+    
+    // Add glow to mini player
+    addBeatGlow() {
+        const miniPlayer = document.querySelector('.mini-player');
+        miniPlayer.classList.add('beat-glow');
+    }
+    
+    // Remove glow from mini player
+    removeBeatGlow() {
+        const miniPlayer = document.querySelector('.mini-player');
+        miniPlayer.classList.remove('beat-glow');
+    }
+    
+    startAnimation() {
+        setInterval(() => {
+            this.spawnNote();
+            
+            // Trigger beat effect occasionally
+            if (this.isPlaying && Math.random() > 0.7) {
+                this.triggerBeatEffect();
+            }
+        }, this.spawnRate > 0 ? this.spawnRate : 200);
+    }
+}
+
