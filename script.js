@@ -631,11 +631,6 @@ class FloatingMusicNotesSystem {
     startAnimation() {
         setInterval(() => {
             this.spawnNote();
-            
-            // Trigger beat effect occasionally
-            if (this.isPlaying && Math.random() > 0.7) {
-                this.triggerBeatEffect();
-            }
         }, this.spawnRate > 0 ? this.spawnRate : 200);
     }
 }
