@@ -1,18 +1,38 @@
 /* CSS Variables for Theme */
 :root {
+    /* Dark Mode Colors */
     --bg-primary: #000000;
     --bg-secondary: #1F1F1F;
+    --bg-tertiary: #130d0dcc;
+    --bg-dark: #0f1111;
     --text-primary: #ffffff;
     --text-secondary: #b8afaf;
+    --text-tertiary: #dddddd;
     --border-color: #333333;
+    --accent-dark: #352727cc;
+    --button-border: rgba(128, 94, 94, 1);
+    --card-bg: rgba(255, 255, 255, 0.08);
+    --hover-bg: rgba(255, 255, 255, 0.15);
+    --gradient-bg: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
+    --glow-color: rgba(255,255,255,0.05);
 }
 
 body.light-mode {
+    /* Light Mode Colors */
     --bg-primary: #f5f5f5;
     --bg-secondary: #ffffff;
+    --bg-tertiary: #f0e6e6;
+    --bg-dark: #e8e8e8;
     --text-primary: #000000;
-    --text-secondary: #555555;
-    --border-color: #cccccc;
+    --text-secondary: #666666;
+    --text-tertiary: #333333;
+    --border-color: #d0d0d0;
+    --accent-dark: #f0d9d9;
+    --button-border: rgba(180, 140, 140, 1);
+    --card-bg: rgba(0, 0, 0, 0.06);
+    --hover-bg: rgba(0, 0, 0, 0.12);
+    --gradient-bg: linear-gradient(135deg, #f5e6e6, #f0d9d9, #e8d0d0);
+    --glow-color: rgba(0,0,0,0.05);
 }
 
 *{
@@ -41,17 +61,19 @@ body{
 
 .poster-hover{
     border: 2px solid transparent;
+    transition: border 0.3s ease;
 }
 .poster-hover:hover{
-    border: 2px solid white;
+    border: 2px solid var(--text-primary);
 }
 
 .click{
     border: 2px solid transparent;
+    transition: border 0.3s ease;
 }
 
 .click:active{
-    border: 2px solid white;
+    border: 2px solid var(--text-primary);
 }
 
 /* Box 1 */
@@ -74,21 +96,23 @@ body{
     height: 50px;
     width: 80px;
     margin-top: 6px;
-    border: 1px solid #000000;
+    border: 1px solid var(--border-color);
     display: flex;
     justify-content: center;
     align-items: center;
     font-weight: 600;
     font-size: 1.8rem;
     padding-bottom: 7px;
+    transition: border-color 0.3s ease;
 }
 .home-logo a{
-    color: white;
+    color: var(--text-primary);
     font-family: 'Trebuchet MS', sans-serif ;
     font-size: 1.6rem;
+    transition: color 0.3s ease;
 }
 .home-logo img{
-    color: #b8afaf;
+    color: var(--text-secondary);
    
 }
 
@@ -138,9 +162,10 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    color: white;
+    color: var(--text-primary);
     font-family: 'Trebuchet MS', sans-serif ;
     font-size: 1.2rem;
+    transition: color 0.3s ease;
 }
 
 /* Box 5 - Dark Mode Toggle */
@@ -185,22 +210,34 @@ body.light-mode .theme-toggle {
     border-radius: 30px;
     font-family: 'Trebuchet MS', sans-serif;
     font-size: 1.2rem;
+    transition: all 0.3s ease;
 }
+
+body.light-mode .Login {
+    background-color: #000000;
+    color: white;
+}
+
 #loginb{
     color: #000000;
     text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+body.light-mode #loginb{
+    color: white;
 }
 
 /* Hero Banner */
 .hero-banner{
     height: 550px;
-    background-color: #000000;
+    background-color: var(--bg-primary);
     /* margin-bottom: 20px;
     margin-top: 8px; */
     display: flex;
     justify-content: center;
     align-items: center;
-
+    transition: background-color 0.3s ease;
 }
 
 /* Artists */
@@ -208,7 +245,8 @@ body.light-mode .theme-toggle {
 .artists{
     height: 400px;
     width: 100%;
-    background-color: #130d0dcc;
+    background-color: var(--bg-tertiary);
+    transition: background-color 0.3s ease;
 }
 
 .artist-head{
@@ -219,14 +257,15 @@ body.light-mode .theme-toggle {
     font-size: 2.2rem;
     font-family: 'Trebuchet MS', sans-serif;
     font-weight: 800;
-    color: white;
+    color: var(--text-primary);
+    transition: color 0.3s ease;
 }
 .artist-img{
     height: 60%;
     display: flex;
     margin-top: 7px;
     align-items: center;
-    color: white;
+    color: var(--text-primary);
 }
 .box{
     display: flex;
@@ -263,9 +302,9 @@ body.light-mode .theme-toggle {
 .artist{
     font-family: 'Trebuchet MS', sans-serif;
     font-weight: 800;
-    color: white;
+    color: var(--text-primary);
     font-size: 1.6rem;
-
+    transition: color 0.3s ease;
 }
 .name1{
     margin-left: 20px;
@@ -285,7 +324,8 @@ body.light-mode .theme-toggle {
 .Vibe{
     height: 400px;
     width: 100%;
-    background-color: #130d0dcc;
+    background-color: var(--bg-tertiary);
+    transition: background-color 0.3s ease;
 }
 
 .vibe-head{
@@ -296,14 +336,16 @@ body.light-mode .theme-toggle {
     font-size: 2.2rem;
     font-family: 'Trebuchet MS', sans-serif;
     font-weight: 800;
-    color: white;
+    color: var(--text-primary);
+    transition: color 0.3s ease;
 }
 .vibe-img{
     height: 60%;
     display: flex;
     margin-top: 7px;
     align-items: center;
-    color: white;
+    color: var(--text-primary);
+    transition: color 0.3s ease;
 }
 .vbox{
     display: flex;
@@ -340,9 +382,9 @@ body.light-mode .theme-toggle {
 .vibe{
     font-family: 'Trebuchet MS', sans-serif;
     font-weight: 800;
-    color: white;
+    color: var(--text-primary);
     font-size: 1.6rem;
-
+    transition: color 0.3s ease;
 }
 .vibename1{
     margin-left: 20px;
@@ -359,7 +401,8 @@ body.light-mode .theme-toggle {
 
 .gap{
     height: 40px;
-    background-color: #000000;
+    background-color: var(--bg-primary);
+    transition: background-color 0.3s ease;
 }
 
 /* Hollywood Artist */
@@ -367,7 +410,8 @@ body.light-mode .theme-toggle {
 .Hartist{
     height: 400px;
     width: 100%;
-    background-color: #130d0dcc;
+    background-color: var(--bg-tertiary);
+    transition: background-color 0.3s ease;
 }
 
 .hartist-head{
@@ -378,7 +422,8 @@ body.light-mode .theme-toggle {
     font-size: 2.2rem;
     font-family: 'Trebuchet MS', sans-serif;
     font-weight: 800;
-    color: white;
+    color: var(--text-primary);
+    transition: color 0.3s ease;
 }
 .hartist-img{
     height: 60%;
@@ -386,7 +431,8 @@ body.light-mode .theme-toggle {
     flex-wrap: wrap;
     margin-top: 7px;
     align-items: center;
-    color: white;
+    color: var(--text-primary);
+    transition: color 0.3s ease;
 }
 .hbox{
     display: flex;
@@ -423,10 +469,10 @@ body.light-mode .theme-toggle {
 .hartist{
     font-family: 'Trebuchet MS', sans-serif;
     font-weight: 800;
-    color: white;
+    color: var(--text-primary);
     font-size: 1.6rem;
     display: flex;
-
+    transition: color 0.3s ease;
 }
 .hartistname1{
     margin-left: 20px;
@@ -444,34 +490,37 @@ body.light-mode .theme-toggle {
 /* Poster 1 */
 
 .poster1{
-    background-color: #130d0dcc;
+    background-color: var(--bg-tertiary);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 750px;
     margin: 5px;
+    transition: background-color 0.3s ease;
 }
 
 #posterpara{
     font-size: 2.8rem;
     font-family: 'Trebuchet MS', sans-serif;
     font-weight: 800;
-    color: white;
+    color: var(--text-primary);
     padding-bottom: 35px;
     padding-top: 25px;
+    transition: color 0.3s ease;
 }
 
 /* Poster 2 */
 
 .poster2{
-    background-color: #130d0dcc;
+    background-color: var(--bg-tertiary);
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
 
     height: 600px;
     margin: 5px;
+    transition: background-color 0.3s ease;
 }
 
 #posterpara{
@@ -508,8 +557,8 @@ body.light-mode .theme-toggle {
 }
 
 .foot-panel1{
-    background-color: #352727cc;
-    color:white;
+    background-color: var(--accent-dark);
+    color: var(--text-primary);
     height: 50px;
     display: flex;
     justify-content: center;
@@ -517,32 +566,38 @@ body.light-mode .theme-toggle {
     font-size: large;
     font-weight: 400;
     font-family:'Times New Roman', Times, serif;
+    transition: all 0.3s ease;
 }
 .foot-panel2{
-    background-color: #000000;
-    color: white;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
     height: 250px;
     display: flex;
     justify-content: space-evenly;
     padding-top: 24px;
+    transition: all 0.3s ease;
 }
 
 ul p{
     font-weight: 800;
+    color: var(--text-primary);
+    transition: color 0.3s ease;
 }
 ul a{
     display: block;
     font-size: 0.85rem;
     margin-top: 10px;
-    color: #dddddd;
+    color: var(--text-tertiary);
+    transition: color 0.3s ease;
 }
 .foot-panel3{
-    background-color: #0f1111;
-    border-top: 0.5px solid white;
+    background-color: var(--bg-dark);
+    border-top: 0.5px solid var(--border-color);
     height: 100px;
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: all 0.3s ease;
 }
 
 .logo1{
@@ -554,16 +609,29 @@ ul a{
 
 
 .foot-panel4{
-    background-color: #130d0dcc;
-    color: white;
+    background-color: var(--bg-tertiary);
+    color: var(--text-primary);
     height: 75px;
+    transition: all 0.3s ease;
 }
 .pages{
     padding-top: 10px ;
     text-align: center;
+    color: var(--text-primary);
+    transition: color 0.3s ease;
+}
+.pages a {
+    color: var(--text-primary);
+    transition: color 0.3s ease;
 }
 .copyright{
     text-align: center;
+    color: var(--text-primary);
+    transition: color 0.3s ease;
+}
+.copyright a {
+    color: var(--text-primary);
+    transition: color 0.3s ease;
 }
 
 /* Mini Music Player */
@@ -573,15 +641,16 @@ ul a{
     left: 0;
     width: 100%;
     height: 80px;
-    background: #1f1f1f;
-    border-top: 1px solid #333;
+    background: var(--bg-secondary);
+    border-top: 1px solid var(--border-color);
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 20px;
-    color: white;
+    color: var(--text-primary);
     font-family: 'Trebuchet MS', sans-serif;
     z-index: 9999;
+    transition: all 0.3s ease;
 }
 
 .mp-left {
@@ -605,11 +674,14 @@ ul a{
 .mp-title {
     font-size: 1rem;
     font-weight: 700;
+    color: var(--text-primary);
+    transition: color 0.3s ease;
 }
 
 .mp-artist {
     font-size: 0.8rem;
-    color: #aaa;
+    color: var(--text-secondary);
+    transition: color 0.3s ease;
 }
 
 .mp-center {
@@ -621,10 +693,10 @@ ul a{
 .mp-btn {
     background: none;
     border: none;
-    color: white;
+    color: var(--text-primary);
     font-size: 1.6rem;
     cursor: pointer;
-    transition: 0.2s;
+    transition: all 0.3s ease;
 }
 
 .mp-btn:hover {
@@ -645,8 +717,9 @@ ul a{
 /* FULL PLAYER */
 .fp-content {
     text-align: center;
-    color: white;
+    color: var(--text-primary);
     width: 80%;
+    transition: color 0.3s ease;
 }
 
 .fp-cover {
@@ -659,12 +732,16 @@ ul a{
 .fp-title {
     font-size: 2rem;
     margin-bottom: 5px;
+    color: var(--text-primary);
+    transition: color 0.3s ease;
 }
 
 .fp-artist {
     font-size: 1.2rem;
     margin-bottom: 20px;
     opacity: 0.8;
+    color: var(--text-secondary);
+    transition: color 0.3s ease;
 }
 
 #fp-seek {
@@ -677,8 +754,9 @@ ul a{
     margin: 0 20px;
     background: none;
     border: none;
-    color: white;
+    color: var(--text-primary);
     cursor: pointer;
+    transition: color 0.3s ease;
 }
 
 #fp-close {
@@ -691,6 +769,12 @@ ul a{
     border: none;
     border-radius: 20px;
     cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+body.light-mode #fp-close {
+    background: black;
+    color: white;
 }
 
 
@@ -701,10 +785,10 @@ ul a{
     left: 0;
     width: 100%;
     height: 85%;
-    background: #111;
-    color: white;
+    background: var(--bg-secondary);
+    color: var(--text-primary);
     border-radius: 25px 25px 0 0;
-    transition: bottom 0.4s ease;
+    transition: all 0.4s ease;
     z-index: 9999;
     padding: 20px;
 }
@@ -737,10 +821,11 @@ ul a{
 .fp-visualizer span {
     width: 3px;
     height: 6px;
-    background: white;
+    background: var(--text-primary);
     border-radius: 3px;
     animation: vis 0.7s ease-in-out infinite;
     animation-play-state: paused;
+    transition: background 0.3s ease;
 }
 
 /* Different delays for wave look */
@@ -773,7 +858,8 @@ ul a{
 .mp-volume input {
     width: 90px;
     cursor: pointer;
-    accent-color: white;
+    accent-color: var(--text-primary);
+    transition: accent-color 0.3s ease;
 }
 
 /* --- Dynamic BG & Glow --- */
@@ -808,8 +894,8 @@ ul a{
   vertical-align: middle;
 }
 
-.play-svg .bar { fill: white; transition: transform 300ms ease, opacity 300ms ease; transform-origin: center; }
-.play-svg .triangle { fill: white; transition: transform 300ms ease, opacity 300ms ease; transform-origin: center; }
+.play-svg .bar { fill: var(--text-primary); transition: transform 300ms ease, opacity 300ms ease, fill 0.3s ease; transform-origin: center; }
+.play-svg .triangle { fill: var(--text-primary); transition: transform 300ms ease, opacity 300ms ease, fill 0.3s ease; transform-origin: center; }
 
 /* "playing" toggles to pause look */
 .playing .triangle { opacity: 0; transform: scale(0.8); }
