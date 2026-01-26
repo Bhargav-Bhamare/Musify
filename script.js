@@ -1,3 +1,42 @@
+// ===== DARK MODE FEATURE =====
+// Initialize theme from localStorage or system preference
+function initializeTheme() {
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeIcon = document.getElementById('theme-icon');
+    
+    if (savedTheme === 'light') {
+        document.body.classList.add('light-mode');
+        themeIcon.textContent = '☀️';
+    } else {
+        document.body.classList.remove('light-mode');
+        themeIcon.textContent = '🌙';
+    }
+}
+
+// Theme toggle button functionality
+document.getElementById('theme-toggle').addEventListener('click', () => {
+    const body = document.body;
+    const themeIcon = document.getElementById('theme-icon');
+    
+    if (body.classList.contains('light-mode')) {
+        // Switch to dark mode
+        body.classList.remove('light-mode');
+        localStorage.setItem('theme', 'dark');
+        themeIcon.textContent = '🌙';
+    } else {
+        // Switch to light mode
+        body.classList.add('light-mode');
+        localStorage.setItem('theme', 'light');
+        themeIcon.textContent = '☀️';
+    }
+});
+
+// Initialize theme on page load
+initializeTheme();
+
+// ===== END DARK MODE FEATURE =====
+
 const audio = document.getElementById("mp-audio");
 const playBtn = document.getElementById("mp-play");
 const seekBar = document.getElementById("mp-seek");
